@@ -95,10 +95,7 @@ export async function parsePDFFile(file: File) {
     const pdfjsLib = await import('pdfjs-dist');
 
     if (typeof window !== 'undefined') {
-      pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
-          'pdfjs-dist/build/pdf.worker.min.mjs',
-          import.meta.url,
-      ).toString();
+      pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
     }
 
     // Read file as array buffer
