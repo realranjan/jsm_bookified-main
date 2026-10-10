@@ -148,6 +148,7 @@ export async function parsePDFFile(file: File) {
     return {
       content: segments,
       cover: coverDataURL,
+      pageCount: pdfDocument.numPages
     };
   } catch (error) {
     console.error('Error parsing PDF:', error);

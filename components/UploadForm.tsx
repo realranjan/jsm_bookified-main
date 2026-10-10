@@ -66,7 +66,7 @@ const UploadForm = () => {
             const parsedPDF = await parsePDFFile(pdfFile);
 
             if(parsedPDF.content.length === 0) {
-                toast.error("Failed to parse PDF. Please try again with a different file.");
+                toast.error(`Debug: Read ${parsedPDF.pageCount} pages but found 0 words. Please use a text PDF, not a scanned image.`);
                 return;
             }
 
